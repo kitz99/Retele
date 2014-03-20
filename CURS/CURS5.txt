@@ -25,3 +25,49 @@
 				-> in momentul in care apare o eroare (un bit s-a schimbat din 1 in 0), eroarea este semnalata, dar in acest moment eroarea nu poate fi corectata.
 
 -> Nu este viabila dublarea sau triplarea informatiei, asadar s-au gasit alte posibilitati de detectie si corectie a erorilor. 
+
+************** CODUL HAMMING(7,4)*****************
+CODURI CORECTOARE DE ERORI
+**************************************************
+
+-> Informatia este cuprinsa intre cele doua flaguri. 
+-> inseamna ca noi transmitem un mesaj total de lungime 7, iar din acest mesaj doar 4 biti sunt informatie utila;
+-> organizarea bitilor: p1 p2 d1 p3 d2 d3 d4
+-> bitii de paritate se afla pe pozitiile corespunzatoare puterilor lui 2
+-> bitii de paritate sunt determinati altfel:
+			-> p1 sumeaza d1, d2, d4;
+			-> p2 sumeaza d1, d3, d4;
+			-> p3 sumeaza d2, d3, d4;
+-> Exista o matrice de detectare a paritatii (are atatea coloane cat este prima ciffra a algoritmului [7]) si coresp tuturor situatiilor in care  se pot gasi bitii de control;
+CONCRET:
+   La codare:
+     -> fie cuvantul 1001
+     -> calculam p1 = 1 + 1 + 0;
+                 p2 = 0;
+                 p3 = 1;
+     -> rezulta codul Hamming 0011001
+
+   La decodare:
+     -> [CAZ 1] Presupunem ca am primit 0011001 (deci fara erori);
+     -> reconstituie bitii de date 1 0 0 1
+     -> Verificam paritatile:
+            p1 + d1 +  d2 + d4 = 0 + 1 + 0 + 1 = 0;
+            p2 + d1 +  d3 + d4 = 0 + 1 + 0 + 1 = 0;
+            p3 + d2 +  d3 + d4 = 1 + 0 + 0 + 1 = 0;
+            REZULTA CA NU ESTE EROARE
+
+     -> [CAZ 2] pp ca primim mesajul 0011011 (cu eroare)
+     	 -> Extrage bitii de date: 1 0 1 1
+     	 -> Verifica paritatile 
+     	 		p1 + d1 +  d2 + d4 = 0 + 1 + 0 + 1 = 0;
+            	p2 + d1 +  d3 + d4 = 0 + 1 + 1 + 1 = 1;
+            	p3 + d2 +  d3 + d4 = 1 + 0 + 0 + 1 = 0;
+            obtine 1, este eroare, merge in matrice si vede carui bit ii corespunde eroarea. IN cazul nostru bitului 6;
+
+     -> [CAZ 3] Eroare ca un bit de control [vezi curs];
+
+Codurile Hamming se generalizeaza:
+	-> fiecare poz putere a lui 2 reprezinta poz unui bit de paritate;
+	-> bitii de paritate se calculeaza asemanator;
+
+Cu ce s-a prezentat pana aici, nu poate fi corectat un cod care ajunge la destinatie cu mai mult de o eroare;
