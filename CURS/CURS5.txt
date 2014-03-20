@@ -1,0 +1,27 @@
+===================================================
+				CURS 2 SAPTAMANA 5
+===================================================
+
+-> o problema esentiala este aceaa de a transmite informatia. Ne referim doar la nivelul transferului de date. [Capitolul care se refera la transferul de intormatii prin retea];
+
+-> problema principala pe care s-a insistat este aceea de a transmite informatii intre masini. Nu pot transmite bucati mari de informatiii, si aceasta trebuie sparta si transmisa pe parti(frame-uri). Informatia este sparta in frame-uri si se trimit, masina receptor le primeste si trebuie sa recompuna informatia;
+
+-> Apar probleme dinc considerene tehnice in momentul in care trebuie recompusa informatia din cadrele primite. Pot aparea diverse probleme: 
+			-> cadrele trebuie puse in ordine, dar ele nu ajung la destinatie neaparat in ordine, iar unul/mai multe pot sa nu ajunga;
+			-> trebuie sa imaginam scenarii de probleme ce pot aparea, si tratate cazurile de eroare;
+
+-> Alta problema este aceea a transmiterii efective de cadre. Cadrele au o lungime fixa in sensul de lungime maximala; Abordarea finala(unanim acceptata) a fost aceea ca aceste cadre sunt formate din 0 si 1, incepe cu un flag si se termina cu un flag. (01111110CADRU01111110). Pentru a evita situatia in care cadrul contine deja flagul, se codifica inainte de a fi incadrat intre flaguri (codificare NU Criptare => informatia nu este ascunsa). Codificarea mesajului se poate realiza astfel: ptr fiecare 5 de 1 consecutivi din informatie inseram un 0, pentru a nu mai avea 01111110 in interiorul informatiei. Aceasta este tehnica prin care sunt transmise cadrele. Scopul retelelor este acela de a transmite informatia coerent. Pierderea daca vrem sa fim coerenti in comunicare este aceea ca trebuie adaugata informatie redundanta de control ce se testeaza in momentul transmiterii.
+
+-> Problema imediat urmatoare dupa rezolvarea transmiterii frame-urilor este ce facem in momentul in care cadrul vine cu erori. Este esential ca masina sa detecteze in momentul in care informatia a venit gresita. Este de dorit ca masina sa si corecteze eroarea.
+
+-> Distanta Hamming primeste 2 cuvinte de aceeasi lungime, determina in cate pozitii difera cele doua cuvinte; Da doar numarul de diferente intre cele doua cuvinte. Nu ofera informatii suplimentare; O alternativa este distanta de editare. Distanta de editare intre 2 stringuri este definita ca nd minim de operatii ce trebuie facute intr-un scring ptr a se transforma in celalalt string. Operatiile sunt: stergere litera, adaugare litera si schimbare litera; Totusi, ele nu dau informatii despre locul in care sunt diferite cuvintele. 
+
+-> distanta Hamming intre 2 siruri binare este echivalenta cu XOR;
+
+-> folosim distanta Hamming in general pentru a spune in prima faza daca a aparut o eroare. O strategie ar fi urmatoarea: 
+				-> Avem un mesaj pe care vrem sa il trimitem.
+				-> o solutie ar fi sa dublam fiecare litera la transmitere;
+				-> receptorul ar trebui sa verifice daca fiecare litera a fost dublata, si daca e ok sa dea literele la o parte si sa decodifice;
+				-> in momentul in care apare o eroare (un bit s-a schimbat din 1 in 0), eroarea este semnalata, dar in acest moment eroarea nu poate fi corectata.
+
+-> Nu este viabila dublarea sau triplarea informatiei, asadar s-au gasit alte posibilitati de detectie si corectie a erorilor. 
