@@ -1,0 +1,62 @@
+=============================
+===		   Curs 6         ===
+===	     27.03.2014	      ===
+=============================
+
+***Protocoale elementare pentru legaturi de date***
+         (Probabilitate mare la examen)
+
+-> vom incerca sa vedem ce proceduri sunt construite concret pentru a transmite informatia
+-> de citit procedurile din carte
+-> verificarea sumei de control se realizeaza de mecanismul de receptie si transmitere
+
+  ****Protocol simplex fara restrictii***
+  	-> context ideal
+  	-> nu are rost sa retransmitem un mesaj de confirmare a primirii (nu mai apare intarziere pe drum)
+  	-> sunt implementabile in cazul in care tre sa lucram cu date reale in timp real
+  	-> singurul eveniment posibil este detectarea unui cadru
+
+  ***Protocol Stop-and-Wait
+    -> receptorul este inecat de catre emitator
+    -> suntem in ipoteza ca datele ajung fara erori
+    -> nu tre sa dam un mesaj de confirmare
+    -> are doua strategii care se pot aplica
+            -> O prima strategie este urmatoarea:
+                  -> Trebuie sa transmit un mesaj emitatorului in care sa ii spun cand sa imi trimita un nou cadru.
+                  maniera statica in care pot contoriza cant de timp maximala in care poate fi procesat un cadru
+                  -> Ii spunem emitatorului sa nu trimita cadru decat la un interval de timp stabilit astfel incat receptorul sa aiba timp sa prelucreze
+                  -> ineficient ptr ca se pierde mult timp si canalul nu se foloseste la capacitatea maximala;
+            -> solutia propusa este aceea de a primi un cadru, iar receptorul, dupa procesare retransmite pe acelasi canal un cadru fictiv care ii spune emitatorului ca poate transmite alt frame;
+
+ *** Canal simplex pentru canale cu zgomot
+    -> trebuie sa trateze si sa aiba grija de toate eenimentele care pot sa apara
+    -> un eveniment ce poate aparea este primirea unui cadru cu erori. La receptor aplicam un cod detector si corector de erori si trimitem raspuns;
+    -> alta problema este cand la receptor am doar cod detector de erori, atunci retransmit un cadru si cer retransmiterea
+
+    -> urmatoarea eroare este aceea in care se pierde cadrul pe drum. Daca nu ajunge la receptor, ptr a sti ca s-a intamplat asta, atasam un contor de timp emitatorului, daca nu se primeste mesaj de confirmare in intervalul dde timp, atuci contorul se reseteaza si se retransmite cadrul.
+
+    -> alta situatie: se trimite cadrul, se receptioneaza, receptorul transmite cadrul fictiv, dar pe parcursul acestui mesaj, el se pierde.
+
+    -> pentru a depasi aceasta situatie, fiecarui cadru ii atasam un bit de control. El este 0 sau 1 in fct de faptul ca acel cadru este original sau duplicat.
+
+ In foecare protocol suntem intr-un ciclu care functioneaza atata timp cat se transmite informatie.
+
+ *****************PROTOCOALE CU FEREASTRA GLISANTA**************************
+ -> o prima solutie de eficientizare a fost aceea de a transmite 2 cadre, iar inormatia de la receptor sa fie adaugata in coada acelui cadru
+
+
+ ****************PROTOCOALE DE REVENIRE CU N PASI ***************************
+ -> ne aflam deja in aceeasi situatie
+ -> distantele pot fi extrem de mari
+ -> momentul in care distanta este deja considerabila dat acestor strategii se poate folosi maxim 4% din latimea de banda. Astfel nu se justifica costurile;
+
+ -> O solutie destul de eleganta a fost sa relaxam maniera conservatoare prin care se trimitea un singur cadru, lasand sa putem trimite un nr maximal de cadre, iar cand ajung la receptor, vor incepe sa curga in sens invers mesajele de confirmare;
+
+ -> in felul acesta canalele vor fi mereu pline cu cadre, astfel incat ultumul cadru pleaca, primim conformarea pentru primul cadru trimis. Se foloseste capacitatea maxima a canalului.
+
+ -> problema care apare in aceasta situatie este aceea de tratare a erorilor. CAnd un cadru este gresit, exista doua strategii: o strategie de selectie si una de revenire. Cand apare cadrul gresit, trimite semnal, si elimina toate cadrele de dupa cadrul gresit. Emitatorul le la retransmite. Este ok cand eroarea apare spre final. Cand apare la inceput nu este eficient.
+
+ ********************protocol cu repetare selectiva****************************
+ -> cadrele intra in buffer, iar cand se gaseste gresit, transmite mesaj si cere retrimiterea acelui cadru. Celelalte raman pe loc, se asteapta venirea si se reuseste ulterior asamblarea informatiei.
+
+ 

@@ -71,3 +71,9 @@ Codurile Hamming se generalizeaza:
 	-> bitii de paritate se calculeaza asemanator;
 
 Cu ce s-a prezentat pana aici, nu poate fi corectat un cod care ajunge la destinatie cu mai mult de o eroare;
+
+         CODURI DETECTOARE DE ERORI
+
+-> Se bazeaza pe aritmetica polinoamelor binare
+
+-> 
