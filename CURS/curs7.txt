@@ -1,0 +1,35 @@
+===============================
+==    Curs 7 - 3 aprilie     ==
+==      saptamana 7          ==
+==                           ==
+== Verificarea protocoalelor ==
+===============================
+
+-> protocoalele au cautat sa raspunda nelamuririlor, dar dupa faza teoretica, urmeaza implementarea lor practica
+-> in practica trebuie sa reverificam protocoalele implemetate
+-> chestiunea verificarii protocoalelor se intalneste la toate nivelurile
+-> exemplificare pe un protocol aparte, dar tehnica este aceeasi pentru toate nivelurile
+-> in Tannenbaum - doua strategii;
+-> Vom utiliza doar automatele cu stari finite
+-> fieare automat va fi asociat unui protocol. Protocolul este asociat emitatorului si receptorului. Automatul se afla in fiecare moment de timp intr-o stare specifica;
+-> canalul are 4 stari posibile
+-> o tranz se ef cand : este transmis un cadru
+                        soseste un cadru
+                        expira un interval de tim
+                        apare o intrerupere
+-> Starea initiala este o unica stare ce corespunde fine descrierii sistemului. fie altui punct convenabil ales;
+-> un automat care determina corectitudinea unui protocol nu trebuie in principiu sa aiba stari inaccesibile
+-> un automat ptr un protocol poate fi privit ca (S, M, I, T), unde:
+							- S multimea starilor in care se pot gasi procesele si canalele
+							- M multimea cadrelor ce pot fi schimbate prin canal
+							- I multimea starilor initiale ale fiecarui proces
+							- T multimea tranzitiillor
+
+-> Analiza accesibilitatii poate fi folosita ptr a detecta erori de specificare a protocolului (slide 10);
+
+-> Vezi slide 12 - atasarea automatului pentru protocolul discutat anterior
+
+-> Slide 14 pare important
+
+->  
+
