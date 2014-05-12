@@ -1,0 +1,23 @@
+==================
+==    RETELE    ==
+==  8.05.2013   ==
+==================
+
+Logistica examen:
+	-> 22 mai 2014 (nu se stie sigur) -> trebuie intrebat la secretariat
+	-> cap 1. -> Arhiectura calculatoarelor
+	-> cap 2. -> Nivelul legatura de date (fara 3.6)
+	-> cap 3. -> Nivelul Retea
+	-> cap 4. -> Nivelul Transport (doar 6.1 si 6.2, 6.5 si 6.6);
+	-> cap 5. -> Nivelul Aplicatie - de citit
+
+	Tre sa primim lista de subiecte
+
+NIVELUL APLIATIE
+	
+	1) DNS -> the Domain Name System
+		-> trecerea intre nume simbolice si adrese IP
+		-> problemele apar la implementare
+		-> structura arborescenta pentru nume de domenii
+		COMPONENTE DNS
+			->

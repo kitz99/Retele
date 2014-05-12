@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1364056642 source:c:\users\cosmo\documents\nfa\main.cpp
+	"others.h"
+	<queue>
+
+1364035556 c:\users\cosmo\documents\nfa\others.h
+	"reach.h"
+	<fstream>
+
+1364117079 c:\users\cosmo\documents\nfa\reach.h
+	<iostream>
+	<string>
+	<vector>
+
+1364032330 source:c:\users\cosmo\documents\nfa\others.cpp
+	"others.h"
+
+1364034476 source:c:\users\cosmo\documents\nfa\reach.cpp
+	"reach.h"
+
+1399454243 source:c:\users\bogdan\desktop\nfa\nfa\main.cpp
+	"others.h"
+	<queue>
+	<vector>
+	<string>
+
+1364035556 c:\users\bogdan\desktop\nfa\nfa\others.h
+	"reach.h"
+	<fstream>
+
+1364117079 c:\users\bogdan\desktop\nfa\nfa\reach.h
+	<iostream>
+	<string>
+	<vector>
+
+1399401053 source:c:\users\bogdan\desktop\nfa\nfa\others.cpp
+	"others.h"
+
+1399400446 source:c:\users\bogdan\desktop\nfa\nfa\reach.cpp
+	"reach.h"
+

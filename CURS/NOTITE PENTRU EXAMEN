@@ -1,0 +1,25 @@
+notite curs retele pentru invatat examen
+
+1) Arhitectura retelelor de calculatoare:
+		-> Def: Se numeste retea de calculatoare un ansamblu format dintr-un numar mare de calulatoare interconectate. Aceste calculatoare sunt autonome si folosesc o singura tehnologie;
+
+		-> Utilizari ale retelelor:
+			Aspecte economice(face echipamenele, programele si datele disponibile pentru oricine din retea)
+			Aspecte domestrice(accesul la informatie de la distanta, comunicari interpersonale, difertisment)
+			Utilizatori mobili
+			Aspecte sociale
+
+		-> Arhitectura client - server(bulshit);
+
+		-> Doua tipuri de tehnologii de transmisie: 
+				Legaturi cu difuzare
+				legaturi punct-la-punct;
+
+		-> RETELE DE DIFUZARE:
+			- un singur canal de comunicatie care poate fi partajat de toate masiniledin retea
+			- orice masina din retea poate trimite mesaje scurte numite pachete, care sunt primite de toate celelalte masini
+			- un camp de adresa din pachet reprezinta adresa masinii destinatie
+			- 
+
+
+
